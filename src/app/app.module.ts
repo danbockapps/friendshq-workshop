@@ -2,10 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { PeopleComponent } from './people/people.component';
+import { PersonListComponent } from './people/person-list/person-list.component';
+import { ShowPersonComponent } from './people/show-person/show-person.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PeopleComponent,
+    PersonListComponent,
+    ShowPersonComponent
   ],
   imports: [
     BrowserModule
@@ -14,3 +21,4 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
