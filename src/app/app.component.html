@@ -10,12 +10,16 @@
        class="navbar-brand d-flex w-50 mr-auto">Friends HQ</a>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link"
+        <li class="nav-item"
+            routerLinkActive="active">
+          <a routerLink="/dashboard"
+             class="nav-link"
              href="#">Dashboard</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"
+        <li class="nav-item"
+            routerLinkActive="active">
+          <a routerLink="/people"
+             class="nav-link"
              href="#">People</a>
         </li>
       </ul>
@@ -23,7 +27,7 @@
   </nav>
 </div>
 <div class="container">
-  <app-people></app-people>
+  <router-outlet></router-outlet>
 </div>
 <footer class="footer text-center">
   <nav class="navbar fixed-bottom navbar-light bg-faded">
