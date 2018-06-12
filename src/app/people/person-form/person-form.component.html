@@ -1,3 +1,68 @@
-<p>
-  person-form works!
-</p>
+<div class="col-xs-12 col-md-12">
+
+  <form #addNewPersonForm="ngForm"
+        (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="first-name">First name</label>
+      <input type="text"
+             class="form-control"
+             id="first-name"
+             [(ngModel)]="model.firstName"
+             name="firstName"
+             #firstName="ngModel"
+             required>
+      <div [hidden]="firstName.valid || firstName.pristine"
+           class="alert alert-danger">
+        First name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">Last name</label>
+      <input type="text"
+             class="form-control"
+             id="last-name"
+             [(ngModel)]="model.lastName"
+             name="lastName"
+             #lastName="ngModel"
+             required>
+      <div [hidden]="lastName.valid || lastName.pristine"
+           class="alert alert-danger">
+        Last name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fav">Fav</label>
+      <input type="checkbox"
+             class="form-control"
+             id="fav"
+             [(ngModel)]="model.fav"
+             name="fav"
+             #fav="ngModel">
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select class="form-control"
+              id="gender"
+              [(ngModel)]="model.gender"
+              name="gender">
+        <option *ngFor="let item of genders|enumToArray"
+                [value]="item.key">
+          {{item.value}}
+        </option>
+      </select>
+    </div>
+
+    <button [disabled]="!addNewPersonForm.valid"
+            type="submit"
+            class="btn btn-success">Submit</button>
+
+  </form>
+
+  <p>Form value: {{ addNewPersonForm.value | json }}</p>
+  <p>Model value: {{ model | json }}</p>
+
+</div>
