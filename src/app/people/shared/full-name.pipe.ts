@@ -6,9 +6,8 @@ import { Friend } from '../../shared/friend.model';
 })
 export class FullNamePipe implements PipeTransform {
 
-  transform(value: Friend, args: any): string {
-    console.log(args);
-    return `${value.firstName} ${value.lastName} is a ${args}`;
+  transform(value: Friend): string {
+    return `${value.firstName} ${value.lastName}`;
   }
 
 }
