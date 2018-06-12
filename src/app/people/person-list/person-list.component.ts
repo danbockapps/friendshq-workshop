@@ -21,9 +21,15 @@ export class PersonListComponent implements OnInit {
   }
 
   showBanner(friend: Friend) {
-    this.displayBanner = true;
-    setTimeout(() => {
-      this.displayBanner = false;
-    }, 3000);
+    this.friendsService.saveFriend(friend).subscribe(
+      response => {
+        console.log(response);
+
+        this.displayBanner = true;
+        setTimeout(() => {
+          this.displayBanner = false;
+        }, 1000);
+      }
+    )
   };
 }
