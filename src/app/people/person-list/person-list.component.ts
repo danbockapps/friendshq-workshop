@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Friend } from '../../shared/friend.model';
+import { FriendsService } from '../../shared/friends.service';
 
 @Component({
   selector: 'app-person-list',
@@ -11,43 +12,13 @@ export class PersonListComponent implements OnInit {
   friends: Friend[];
   displayBanner: boolean = false;
 
-  constructor() {
-    this.friends =
-      [
-        {
-          "id": 1,
-          "firstName": "Dwight",
-          "lastName": "Evans",
-          "gender": "female",
-          "fav": true
-        },
-        {
-          "id": 2,
-          "firstName": "Marty",
-          "lastName": "Barrett",
-          "gender": "male",
-          "fav": true
-        },
-        {
-          "id": 3,
-          "firstName": "Jim",
-          "lastName": "Rice",
-          "gender": "none",
-          "fav": false
-        },
-        {
-          "id": 4,
-          "firstName": "Mike",
-          "lastName": "Greenwell",
-          "gender": "male",
-          "fav": true
-        }
-      ];
+  constructor(private friendsService: FriendsService) { }
 
-
+  ngOnInit() {
+    this.friendsService.getFriends().subscribe(
+      friends => this.friends = friends
+    );
   }
-
-  ngOnInit() { }
 
   showBanner(friend: Friend) {
     this.displayBanner = true;
