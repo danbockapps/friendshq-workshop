@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { FullNamePipe } from './people/shared/full-name.pipe';
+import { PersonFormComponent } from './people/person-form/person-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FullNamePipe } from './people/shared/full-name.pipe';
     PersonListComponent,
     ShowPersonComponent,
     DashboardComponent,
-    FullNamePipe
+    FullNamePipe,
+    PersonFormComponent
   ],
   imports: [
     BrowserModule,
