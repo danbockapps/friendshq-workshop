@@ -12,6 +12,18 @@ export class FriendsService {
 
   getFriends(): Observable<Friend[]> {
     return this.httpClient.get<Friend[]>('http://localhost:3000/friends');
+  }
 
+  saveFriend(friend: Friend) {
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    });
+
+    return this.httpClient.put<Friend>(
+      `http://localhost:3000/friends/${friend.id}`,
+      friend,
+      { headers: headers }
+    );
   }
 }

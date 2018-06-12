@@ -12,21 +12,21 @@
       "firstName": "Marty",
       "lastName": "Barrett",
       "gender": "male",
-      "fav": true
+      "fav": false
     },
     {
       "id": 3,
       "firstName": "Jim",
       "lastName": "Rice",
       "gender": "none",
-      "fav": false
+      "fav": true
     },
     {
       "id": 4,
       "firstName": "Mike",
       "lastName": "Greenwell",
       "gender": "male",
-      "fav": true
+      "fav": false
     }
   ]
 }
