@@ -10,6 +10,7 @@ import { FriendsService } from './shared/friends.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { FullNamePipe } from './people/shared/full-name.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { routes } from './app.routes';
     PeopleComponent,
     PersonListComponent,
     ShowPersonComponent,
-    DashboardComponent
+    DashboardComponent,
+    FullNamePipe
   ],
   imports: [
     BrowserModule,
