@@ -44,7 +44,8 @@
 
     <button type="submit"
             [disabled]="addNewPersonForm.invalid"
-            class="btn btn-success">
+            class="btn btn-success"
+            (click)="onSubmit()">
       Submit
     </button>
   </form>

@@ -7,6 +7,10 @@ import { Friend } from "./friend.model";
   providedIn: 'root'
 })
 export class FriendsService {
+  readonly headers: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  });
 
   constructor(private httpClient: HttpClient) { }
 
@@ -15,15 +19,18 @@ export class FriendsService {
   }
 
   saveFriend(friend: Friend) {
-    const headers: HttpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    });
-
     return this.httpClient.put<Friend>(
       `http://localhost:3000/friends/${friend.id}`,
       friend,
-      { headers: headers }
+      { headers: this.headers }
+    );
+  }
+
+  addFriend(friend: Friend) {
+    return this.httpClient.post<Friend>(
+      `http://localhost:3000/friends`,
+      friend,
+      { headers: this.headers }
     );
   }
 }

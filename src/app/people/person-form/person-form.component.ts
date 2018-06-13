@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Friend } from '../../shared/friend.model';
 import { Gender } from '../../shared/gender.enum';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FriendsService } from '../../shared/friends.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-person-form',
@@ -13,7 +15,11 @@ export class PersonFormComponent implements OnInit {
   genders = Gender;
   addNewPersonForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private friendService: FriendsService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.addNewPersonForm = this.formBuilder.group({
@@ -46,6 +52,11 @@ export class PersonFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("Submitting . . .");
+    this.friendService.addFriend(this.addNewPersonForm.getRawValue()).subscribe(
+      data => {
+        console.log(data);
+        this.router.navigate(['people']);
+      }
+    );
   }
 }
