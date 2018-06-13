@@ -27,7 +27,7 @@ export class PersonFormComponent implements OnInit {
       lastName: ['', Validators.required],
       fav: [false],
       gender: [this.genders]
-    });
+    }, { updateOn: 'blur' }); // This doesn't work in Angular 6 - a bug.
 
     /*
 
