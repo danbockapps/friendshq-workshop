@@ -28,6 +28,7 @@ export class PersonFormComponent implements OnInit {
       fav: [false],
       gender: [this.genders]
     }, { updateOn: 'blur' }); // This doesn't work in Angular 6 - a bug.
+    // https://github.com/angular/angular/issues/19163
 
     /*
 
