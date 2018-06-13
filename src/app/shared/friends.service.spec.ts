@@ -60,4 +60,34 @@ describe('FriendsService', () => {
       req.flush(expectedFriends);
     });
   });
+
+  describe('#saveFriend', () => {
+    it('should save a friend', () => {
+      friendsService.saveFriend(friend).subscribe(
+        data => {
+          expect(data).toEqual(friend);
+        }
+      );
+
+      const req = httpTestingController.expectOne(`${BASE_URL}/friends/${friend.id}`);
+
+      expect(req.request.method).toEqual('PUT');
+      req.flush(friend);
+    });
+  });
+
+  describe('#addFriend', () => {
+    it('should add a friend', () => {
+      friendsService.addFriend(friend).subscribe(
+        data => {
+          expect(data).toEqual(friend);
+        }
+      );
+
+      const req = httpTestingController.expectOne(`${BASE_URL}/friends`);
+
+      expect(req.request.method).toEqual('POST');
+      req.flush(friend);
+    })
+  });
 });
